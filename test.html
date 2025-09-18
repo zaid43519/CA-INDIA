@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S. C. AJMERA & CO.— Home</title>
+  <style>
+    /* === Global Styles === */
+    :root {
+      --primary: #1570a0;
+      --dark: #222;
+      --muted: #666;
+      --bg: #f9f9f9;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body { color: var(--dark); background: #fff; line-height: 1.6; scroll-behavior: smooth; }
+    a { text-decoration: none; color: var(--primary); }
+    img { max-width: 100%; display: block; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+
+    /* === Header === */
+    header { background: #fff; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 100; }
+    .header-inner { display: flex; justify-content: space-between; align-items: center; }
+    nav ul { list-style: none; display: flex; gap: 20px; }
+    nav a { color: var(--dark); font-weight: 600; }
+    nav a:hover { color: var(--primary); }
+    .brand { font-size: 1.2rem; font-weight: bold; color: var(--primary); display: flex; align-items: center; gap: 10px; }
+    .brand img { height: 40px; }
+
+    /* Dropdown */
+    nav ul li { position: relative; }
+    nav ul li ul {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      min-width: 180px;
+      padding: 10px 0;
+      z-index: 999;
+    }
+    nav ul li:hover ul { display: block; }
+    nav ul li ul li { width: 100%; }
+    nav ul li ul li a {
+      padding: 8px 15px;
+      display: block;
+      color: var(--dark);
+    }
+    nav ul li ul li a:hover {
+      background: #f4f6fb;
+      color: var(--primary);
+    }
+
+    /* Hamburger menu for mobile */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+    .hamburger span {
+      background: #000;
+      height: 3px;
+      width: 25px;
+      border-radius: 2px;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background: #fff;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        padding: 15px;
+        border-top: 1px solid #eee;
+      }
+      nav ul.active { display: flex; }
+      nav ul li { width: 100%; }
+      nav ul li ul {
+        position: static;
+        border: none;
+        background: none;
+        padding: 0;
+      }
+      nav ul li ul li a { padding-left: 30px; }
+      .hamburger { display: flex; }
+    }
+
+    /* === Hero === */
+    .hero { padding: 60px 20px; text-align: center; background: linear-gradient(135deg,#0b5bd7,#092b7a); color: #fff; }
+    .hero h1 { font-size: 2.5rem; margin-bottom: 20px; }
+    .hero p { max-width: 700px; margin: 0 auto; font-size: 1.1rem; }
+
+    /* === Stats Section === */
+    .stats { padding: 40px 20px; text-align: center; background: #e3ebff; }
+    .stat-list { display: flex; justify-content: center; gap: 110px; flex-wrap: wrap; }
+    .stat { font-size: 3rem; font-weight: bold; color: var(--primary); }
+    .stat span { display: block; font-size: 0.9rem; color: var(--muted); }
+
+    /* === Vision & Mission === */
+    .vision-mission { padding: 50px 20px; background: #f9f9f9; text-align: center; }
+    .vision-mission h2 { margin-bottom: 30px; font-size: 2rem; color: var(--dark); }
+    .vm-boxes { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+    .vm-box {
+      max-width: 280px;
+      background: #fff;
+      border: 2px solid var(--primary);
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .vm-box:hover { transform: translateY(-5px); }
+    .vm-box h3 { margin-bottom: 10px; font-size: 1.2rem; color: var(--primary); }
+    .vm-box p { font-size: 0.95rem; color: var(--muted); }
+
+    /* === Insights Cards === */
+    .insights { padding: 50px 20px; }
+    .insights h2 { text-align: center; margin-bottom: 30px; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 20px; }
+    .card { border: 1px solid #ddd; border-radius: 10px; overflow: hidden; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+    .card img { height: 180px; object-fit: cover; }
+    .card-body { padding: 15px; }
+    .card-body h3 { font-size: 1.1rem; margin-bottom: 10px; }
+    .card-body time { display: block; margin-bottom: 10px; font-size: 0.85rem; color: var(--muted); }
+
+    /* === Newsletter === */
+    .subscribe { background: var(--bg); padding: 40px 20px; text-align: center; }
+    .subscribe h2 { margin-bottom: 20px; }
+    .subscribe form { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; }
+    .subscribe input { padding: 10px; border: 1px solid #ccc; border-radius: 6px; min-width: 250px; }
+    .subscribe button { padding: 10px 16px; border: 0; border-radius: 6px; background: var(--primary); color: #fff; cursor: pointer; }
+    .subscribe button:hover { background: #092b7a; }
+
+    /* === Footer === */
+    footer { background: #111; color: #fff; padding: 30px 20px; text-align: center; margin-top: 40px; }
+    footer a { color: #fff; }
+
+    /* === Back to Top Button === */
+    #backToTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--primary);
+      color: #fff;
+      padding: 20px 25px;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      font-size: 18px;
+      z-index: 1000;
+    }
+    #backToTop:hover { background: #092b7a; }
+
+    /* === Fade-in Animations === */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container header-inner">
+      <div class="brand">
+        <a href="index.html">
+          <img src="images/Screenshot 2025-09-04 142312.png" alt="S. C. AJMERA & CO. Logo">
+        </a>
+      </div>
+      <nav>
+        <ul id="menu">
+          <li>
+            <a>About</a>
+            <ul>
+              <li><a href="/thefirm.html">Firm Legacy</a></li>
+              <li><a href="leadership.html">Leadership</a></li>
+              <li><a href="location.html">Location</a></li>
+            </ul>
+          </li>
+          <li><a href="experience.html">Experience</a></li>
+          <li><a href="insights.html">Insights</a></li>
+          <li><a href="location.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero fade-in">
+    <h1 class="fade-in">Where Knowledge Meets Experience</h1>
+    <p>S. C. AJMERA & CO. is an all-services firm providing tax, audit, advisory and corporate services to domestic and multinational clients.</p>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats fade-in">
+    <div class="stat-list">
+      <div>
+        <div class="stat counter" data-target="50">0</div>
+        <span>Partners</span>
+      </div>
+      <div>
+        <div class="stat counter" data-target="50">0</div>
+        <span>Personnel</span>
+      </div>
+      <div>
+        <div class="stat counter" data-target="6">0</div>
+        <span>Offices</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vision & Mission -->
+  <section class="vision-mission fade-in">
+    <h2 class="fade-in">Our Vision & Mission</h2>
+    <div class="vm-boxes">
+      <div class="vm-box">
+        <h3>Vision</h3>
+        <p>To constantly exceed our clients' expectations by adding value at every business level...</p>
+      </div>
+      <div class="vm-box">
+        <h3>Mission</h3>
+        <p>To provide knowledge-based solutions with personalized services...</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Insights -->
+  <section class="insights fade-in">
+    <h2 class="fade-in">Latest Insights</h2>
+    <div class="cards">
+      <article class="card">
+        <img src="https://via.placeholder.com/640x360" alt="Quarterly Insights July 2025">
+        <div class="card-body">
+          <h3>Company Law, Accountancy and Audit – July 2025</h3>
+          <time datetime="2025-07-25">July 25, 2025</time>
+          <p><a href="#">Read more</a></p>
+        </div>
+      </article>
+      <article class="card">
+        <img src="https://via.placeholder.com/640x360" alt="Taxation Update">
+        <div class="card-body">
+          <h3>Taxation Updates & Analysis</h3>
+          <time datetime="2025-07-25">July 25, 2025</time>
+          <p><a href="#">Read more</a></p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="subscribe fade-in">
+    <h2 class="fade-in">Stay Updated. Subscribe To Our Newsletter</h2>
+    <form>
+      <input type="email" placeholder="Enter your email" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 S. C. AJMERA & CO. | <a href="mailto:scajmeraca@gmail.com">scajmeraca@gmail.com</a></p>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop">↑</button>
+
+  <!-- Scripts -->
+  <script>
+    // Counter animation
+    const counters = document.querySelectorAll('.counter');
+    const speed = 200;
+    counters.forEach(counter => {
+      const updateCount = () => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        const increment = Math.ceil(target / speed);
+        if (count < target) {
+          counter.innerText = count + increment;
+          setTimeout(updateCount, 20);
+        } else {
+          counter.innerText = target + (target >= 50 ? "+" : "");
+        }
+      };
+      updateCount();
+    });
+
+    // Hamburger toggle
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("active");
+    }
+
+    // Back to Top Button
+    const backToTop = document.getElementById("backToTop");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        backToTop.style.display = "block";
+      } else {
+        backToTop.style.display = "none";
+      }
+    });
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // Fade-in on scroll
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = { threshold: 0.2 };
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, appearOptions);
+    faders.forEach(fader => appearOnScroll.observe(fader));
+  </script>
+</body>
+</html>
+ 

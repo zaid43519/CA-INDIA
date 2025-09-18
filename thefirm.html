@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S. C. AJMERA & CO.— Firm</title>
+  <style>
+    :root {
+      --primary: #1570a0;
+      --secondary: #0b5bd7;
+      --dark: #222;
+      --muted: #555;
+      --light: #fff;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Lato, sans-serif; }
+    body { color: var(--dark); background: #fff; line-height: 1.6; }
+    a { text-decoration: none; color: var(--primary); }
+    img { max-width: 100%; display: block; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+    /* Header */
+    header { background: #fff; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 100; }
+    .header-inner { display: flex; justify-content: space-between; align-items: center; }
+    nav ul { list-style: none; display: flex; gap: 20px; }
+    nav a { color: var(--dark); font-weight: 600; }
+    nav a:hover { color: var(--primary); }
+    .brand { font-size: 1.2rem; font-weight: bold; color: var(--primary); display: flex; align-items: center; gap: 10px; }
+    .brand img { height: 40px; }
+
+    nav ul li { position: relative; }
+    nav ul li ul {
+      display: none; position: absolute; top: 100%; left: 0;
+      background: #fff; border: 1px solid #ddd; border-radius: 6px;
+      min-width: 180px; padding: 10px 0; z-index: 999;
+    }
+    nav ul li:hover ul { display: block; }
+    nav ul li ul li a { padding: 8px 15px; display: block; color: var(--dark); }
+    nav ul li ul li a:hover { background: #f4f6fb; color: var(--primary); }
+
+    .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
+    .hamburger span { background: #000; height: 3px; width: 25px; border-radius: 2px; }
+
+    @media (max-width: 768px) {
+      nav ul { display: none; flex-direction: column; background: #fff;
+        position: absolute; top: 70px; padding: 15px; left: 0; width: 100%;
+        border-top: 1px solid #eee; }
+      nav ul.active { display: flex; }
+      nav ul li { width: 100%; }
+      nav ul li ul { position: static; border: none; background: none; padding: 0; }
+      nav ul li ul li a { padding-left: 30px; }
+      .hamburger { display: flex; }
+    }
+
+     /* === Back to Top Floating === */
+    #backToTop {
+      position: fixed; bottom: 30px; right: 30px;
+      background: var(--primary); color: #fff;
+      padding: 15px 20px; border: none; border-radius: 50%;
+      cursor: pointer; display: none; font-size: 20px;
+      z-index: 1000; animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(21,112,160, 0.7); }
+      70% { transform: scale(1.1); box-shadow: 0 0 0 15px rgba(21,112,160, 0); }
+      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(21,112,160, 0); }
+    }
+
+    /* Hero */
+    /* .hero {
+      padding: 60px 20px;
+      text-align: center;
+      background: linear-gradient(135deg,#0b5bd7,#092b7a);
+      color: #fff;
+    }
+    .hero h1 { font-size: 2.5rem; margin-bottom: 20px; } */
+
+    .hero {
+      padding: 100px 20px;
+      text-align: center;
+      background: linear-gradient(-45deg, #0b5bd7, #092b7a, #1570a0, #00c6ff);
+      background-size: 400% 400%;
+      animation: gradientBG 12s ease infinite;
+      color: #fff;
+      max-height: 5vh;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .hero h1 {
+      font-size: 3.2rem;
+      margin-bottom: 15px;
+      animation: slideDown 1s ease-out forwards;
+    }
+    @keyframes slideDown {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    /* Experience Section */
+    .experience {
+      background: linear-gradient(135deg, #f0f4f9, #e8f0ff);
+    background-image  : url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+      padding: 80px 20px;
+      position: relative;
+    }
+    .experience h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 50px;
+      color: var(--primary);
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+     background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+    }
+
+    .exp-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 25px;
+      margin-bottom: 25px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+    }
+    .exp-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    }
+    .exp-card h3 {
+      font-size: 1.5rem;
+      color: var(--secondary);
+      margin-bottom: 15px;
+      position: relative;
+    }
+    .exp-card h3::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 3px;
+    }
+    .exp-card h4 {
+      font-size: 1.15rem;
+      margin: 18px 0 10px;
+      color: var(--dark);
+    }
+    .exp-card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .exp-card ul li {
+      margin-bottom: 8px;
+      padding-left: 20px;
+      position: relative;
+      color: var(--muted);
+    }
+    .exp-card ul li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: bold;
+    }
+     .the-firm {
+  background: #fff;
+  padding: 60px 20px;
+}
+
+.the-firm .section-title {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  color: var(--primary);
+}
+
+.the-firm .firm-image img {
+  display: block;
+  margin: 0 auto 40px auto;
+  max-width: 600px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.the-firm .firm-content p {
+  max-width: 800px;
+  margin: 20px auto;
+  font-size: 1rem;
+  color: var(--dark);
+  text-align: justify;
+  line-height: 1.8;
+}
+
+.the-firm .firm-content p strong {
+  color: var(--primary);
+}/* === Fade-in Animations === */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+ /* === Newsletter === */
+    .subscribe { background:#f9f9f9; padding: 40px 20px; text-align: center; }
+    .subscribe h2 { margin-bottom: 20px; }
+    .subscribe form { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; }
+    .subscribe input { padding: 10px; border: 1px solid #ccc; border-radius: 6px; min-width: 250px; }
+    .subscribe button { padding: 10px 16px; border: 0; border-radius: 6px; background: var(--primary); color: #fff; cursor: pointer; }
+    .subscribe button:hover { background: #092b7a; }
+    /* Footer */
+    footer { background: #111; color: #fff; padding: 30px 20px; text-align: center; margin-top: 40px; }
+    footer a { color: #fff; }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header-inner">
+      <div class="brand">
+        <a href="index.html"><img src="images/Screenshot 2025-09-04 142312.png" alt="S. C. AJMERA & CO. Logo"></a>
+      </div>
+      <nav>
+        <ul id="menu">
+          <li><a>About</a>
+            <ul>
+              <li><a href="/thefirm.html">Firm Legacy</a></li>
+              <li><a href="leadership.html">Leadership</a></li>
+              <li><a href="location.html">Location</a></li>
+            </ul>
+          </li>
+          <li><a href="experience.html">Experience</a></li>
+          <li><a href="insights.html">Insights</a></li>
+          <li><a href="location.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>The Firm</h1>
+  </section>
+
+  
+  
+      
+<section class="the-firm">
+  <div class="container">
+
+    <div class="firm-content">
+      <p class="fade-in"><strong>S. C. AJMERA & CO.</strong> is a reputable partnership firm established on <strong>25 May 1980</strong>, with its head office located in Thane and branch offices in Udaipur, Mumbai, Indore, and Sambalpur. The firm is registered under <strong>Registration No. 002908C</strong> and is empaneled with the <strong>Central Government</strong>, <strong>RBI</strong>, and <strong>CAG</strong>, providing audit services to entities with turnover or deposits exceeding 500 crores. It holds <strong>PAN No. AAQFS9420E</strong> and <strong>GST Registration No. 08AAQFS9420E1ZW</strong>, and its chartered accountants are certified by ICAI. The firm is committed to providing high-quality audit and financial consultancy services to diverse sectors including banking, insurance, infrastructure, education, and cooperative societies.</p>
+
+      <p class="fade-in">With over four decades of experience, <strong>S. C. AJMERA & CO.</strong> specializes in statutory audits, tax audits, system audits, concurrent audits, internal financial control audits, and taxation consultancy. The firm has successfully conducted audits for prominent organizations such as the <strong>State Bank of Bikaner & Jaipur</strong>, <strong>Dena Bank</strong>, <strong>ONGC</strong>, <strong>BSNL</strong>, <strong>Power System Operation Corporation</strong>, and many others. It is also actively engaged in audits for universities, hospitals, non-governmental organizations, and cooperative societies across India.</p>
+
+      <p class="fade-in">The team is led by highly experienced partners, including <strong>CA Suresh C. Ajmera</strong>, <strong>CA Arun Sarupria</strong>, <strong>CA Satish Shakkya</strong>, <strong>CA Madan Lal Jain</strong>, <strong>CA K. K. Agrawal</strong>, <strong>CA Ashok Kumar Gang</strong>, <strong>CA Pritam Sharma</strong>, and <strong>CA Sheetal Choudhary</strong>. Many of the partners are accredited with FCA and DISA qualifications and have attended specialized training in concurrent audit and information systems auditing. Their leadership and technical expertise enable the firm to offer tailor-made solutions that meet regulatory requirements and business goals.</p>
+
+      <p class="fade-in">Over the years, the firm has built a strong reputation for integrity, professionalism, and excellence. It emphasizes ethical conduct and team collaboration, ensuring that clients receive timely and precise guidance on audit and taxation matters. The firm has conducted audits for major PSU companies, banks, insurance providers, manufacturing units, infrastructure projects, and educational institutions, consistently helping organizations maintain compliance and strengthen financial management.</p>
+
+      <p>Committed to fostering long-term client relationships, <strong>S. C. AJMERA & CO.</strong> continues to expand its services while adapting to emerging technologies and global standards. The firm remains a trusted advisor, offering comprehensive financial audits, tax compliance, internal controls, valuation, liquidation services, and arbitration support tailored to the needs of various sectors.</p>
+    </div>
+  </div>
+</section>
+     
+      
+</section>
+     
+
+  
+  <!-- Footer -->
+    <!-- Back to Top -->
+  <button id="backToTop">↑</button>
+  <footer>
+    <p>© 2025 S. C. AJMERA & CO. | <a href="mailto:scajmeraca@gmail.com">scajmeraca@gmail.com
+<script>
+     // Hamburger toggle
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("active");
+    }
+
+    // Back to Top
+    const backToTop = document.getElementById("backToTop");
+    window.addEventListener("scroll", () => {
+      backToTop.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+  // Fade-in on scroll
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = { threshold: 0.2 };
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, appearOptions);
+    faders.forEach(fader => appearOnScroll.observe(fader));
+  </script>

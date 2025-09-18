@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S. C. AJMERA & CO.— Experience</title>
+  <style>
+    :root {
+      --primary: #1570a0;
+      --secondary: #0b5bd7;
+      --dark: #222;
+      --muted: #555;
+      --light: #fff;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Lato, sans-serif; }
+    body { color: var(--dark); background: #fff; line-height: 1.6; }
+    a { text-decoration: none; color: var(--primary); }
+    img { max-width: 100%; display: block; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+    /* Header */
+    header { background: #fff; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 100; }
+    .header-inner { display: flex; justify-content: space-between; align-items: center; }
+    nav ul { list-style: none; display: flex; gap: 20px; }
+    nav a { color: var(--dark); font-weight: 600; }
+    nav a:hover { color: var(--primary); }
+    .brand { font-size: 1.2rem; font-weight: bold; color: var(--primary); display: flex; align-items: center; gap: 10px; }
+    .brand img { height: 40px; }
+
+    nav ul li { position: relative; }
+    nav ul li ul {
+      display: none; position: absolute; top: 100%; left: 0;
+      background: #fff; border: 1px solid #ddd; border-radius: 6px;
+      min-width: 180px; padding: 10px 0; z-index: 999;
+    }
+    nav ul li:hover ul { display: block; }
+    nav ul li ul li a { padding: 8px 15px; display: block; color: var(--dark); }
+    nav ul li ul li a:hover { background: #f4f6fb; color: var(--primary); }
+
+    .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
+    .hamburger span { background: #000; height: 3px; width: 25px; border-radius: 2px; }
+
+    @media (max-width: 768px) {
+      nav ul { display: none; flex-direction: column; background: #fff;
+        position: absolute; top: 70px; padding: 15px; left: 0; width: 100%;
+        border-top: 1px solid #eee; }
+      nav ul.active { display: flex; }
+      nav ul li { width: 100%; }
+      nav ul li ul { position: static; border: none; background: none; padding: 0; }
+      nav ul li ul li a { padding-left: 30px; }
+      .hamburger { display: flex; }
+    }
+
+     /* === Back to Top Floating === */
+    #backToTop {
+      position: fixed; bottom: 30px; right: 30px;
+      background: var(--primary); color: #fff;
+      padding: 15px 20px; border: none; border-radius: 50%;
+      cursor: pointer; display: none; font-size: 20px;
+      z-index: 1000; animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(21,112,160, 0.7); }
+      70% { transform: scale(1.1); box-shadow: 0 0 0 15px rgba(21,112,160, 0); }
+      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(21,112,160, 0); }
+    }
+
+    /* Hero */
+     .hero {
+      padding: 100px 20px;
+      text-align: center;
+      background: linear-gradient(-45deg, #0b5bd7, #092b7a, #1570a0, #00c6ff);
+      background-size: 400% 400%;
+      animation: gradientBG 12s ease infinite;
+      color: #fff;
+      max-height: 5vh;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .hero h1 {
+      font-size: 3.2rem;
+      margin-bottom: 15px;
+      animation: slideDown 1s ease-out forwards;
+    }
+    @keyframes slideDown {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Experience Section */
+    .experience {
+      background: linear-gradient(135deg, #f0f4f9, #e8f0ff);
+      background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+      padding: 80px 20px;
+      position: relative;
+    }
+    .experience h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 50px;
+      color: var(--primary);
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+    }
+
+    .exp-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 25px;
+      margin-bottom: 25px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+    }
+    .exp-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    }
+    .exp-card h3 {
+      font-size: 1.5rem;
+      color: var(--secondary);
+      margin-bottom: 15px;
+      position: relative;
+    }
+    .exp-card h3::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 3px;
+    }
+    .exp-card h4 {
+      font-size: 1.15rem;
+      margin: 18px 0 10px;
+      color: var(--dark);
+    }
+    .exp-card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .exp-card ul li {
+      margin-bottom: 8px;
+      padding-left: 20px;
+      position: relative;
+      color: var(--muted);
+    }
+    .exp-card ul li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: bold;
+    }
+
+    /* Footer */
+    footer { background: #111; color: #fff; padding: 30px 20px; text-align: center; margin-top: 40px; }
+    footer a { color: #fff; }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header-inner">
+      <div class="brand">
+        <a href="index.html"><img src="images/Screenshot 2025-09-04 142312.png" alt="S. C. AJMERA & CO. Logo"></a>
+      </div>
+      <nav>
+        <ul id="menu">
+          <li><a>About</a>
+            <ul>
+              <li><a href="/thefirm.html">Firm Legacy</a></li>
+              <li><a href="leadership.html">Leadership</a></li>
+              <li><a href="location.html">Location</a></li>
+            </ul>
+          </li>
+          <li><a href="experience.html">Experience</a></li>
+          <li><a href="insights.html">Insights</a></li>
+          <li><a href="location.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Experience</h1>
+  </section>
+
+  <!-- Experience Section -->
+  <section class="experience">
+    <div class="container">
+      
+
+      <!-- Banking -->
+      <div class="exp-card">
+        <h3>Banking</h3>
+        <h4>Central Statutory Audit</h4>
+        <ul>
+          <li>State Bank of Bikaner & Jaipur (2004-05, 2005-06, 2006-07, 2007-08)</li>
+          <li>Dena Bank (2013-14, 2014-15, 2015-16 & till 30.09.2016)</li>
+        </ul>
+        <h4>Statutory Audit</h4>
+        <ul>
+          <li>Rajsamand Urban Co-operative Bank (2008-09, 2009-10)</li>
+          <li>Jalore Nagrik Sahakari Bank (2011-12)</li>
+          <li>Sirohi Central Co-operative Bank (2009-10, 2011-12)</li>
+        </ul>
+        <h4>Statutory Branch Audit</h4>
+        <ul>
+          <li>Indian Bank (2020-21, 2021-22, 2022-23, 2023-24)</li>
+          <li>State Bank of India (1985-86 to 1989-90, 2017-18, 2018-19, 2019-20)</li>
+          <li>Bank of Baroda (2008-09, 2009-10, 2010-11, 2011-12)</li>
+          <li>Bank of India (2000-01, 2001-02, 2002-03, 2003-04)</li>
+          <li>Punjab National Bank (1995-96, 1996-97, 1997-98)</li>
+          <li>UCO Bank (1993-94)</li>
+          <li>Mewar Anchalic Gramin Bank (1987-88, 1988-89, 1989-90)</li>
+          <li>Rajasthan Marudhara Gramin Bank (2018-19, 2019-20, 2020-21)</li>
+        </ul>
+        <h4>Revenue Audit</h4>
+        <ul><li>Punjab National Bank (1981-82 to 1993-94, 13 years)</li></ul>
+        <h4>Concurrent Audit</h4>
+        <ul>
+          <li>State Bank of Bikaner & Jaipur (1985-86 to 1989-90, 5 years)</li>
+          <li>Canara Bank (2012-13, 2013-14, 2014-15)</li>
+        </ul>
+        <h4>Internal Audit / Tax Audit</h4>
+        <ul>
+          <li>The Bank of Rajasthan (1985-86 to 1989-90)</li>
+          <li>Udaipur Urban Co-operative Bank (1997-98, 1998-99)</li>
+          <li>Rajasthan State Co-operative Bank (2010-11, 2011-12)</li>
+        </ul>
+        <h4>Stock Audit</h4>
+        <ul><li>Indian Bank (2020-21)</li></ul>
+      </div>
+
+      <!-- PSU Companies -->
+      <div class="exp-card">
+        <h3>PSU Companies</h3>
+        <h4><u>Oil & Natural Gas</u></h4>
+         <h4>Statutory Audit</h4>
+        <ul><li>ONGC (2005-06 to 2007-08)</li></ul>
+        <h4><u>Telecommunication</u></h4>
+         <h4>Statutory Audit</h4>
+        <ul><li>BSNL (2008-09 to 2011-12)</li></ul>
+        <h4><u>Power and Mineral</u></h4>
+            <h4>Statutory Audit</h4>
+        <ul>
+          <li>Uttar Gujarat Vij Company Ltd. (2012-13)</li>
+          <li>Power System Operation Corporation Ltd. (2013-14, 2014-15)</li>
+          <li>Gujarat Mineral Development Corporation (2015-16, 2016-17, 2017-18, 2018-19)</li>
+        </ul>
+        <h4><u>Investment Banking Company</u></h4>
+        <h4>Statutory Audit</h4>
+        <ul><li>SBI Capital Markets Ltd. (2021-22, 2022-23, 2023-24)</li></ul>
+        <h4><u>Financial Institution</u></h4>
+        <h4>Statutory Audit</h4>
+        <ul><li>Gujarat State Financial Corporation (2000-01)</li></ul>
+      </div>
+
+      <!-- Insurance -->
+      <div class="exp-card">
+        <h3>Insurance</h3>
+        <ul>
+          <h4>Statutory Regional / Divisional Office Audit</h4>
+          <li>National Insurance Co. Ltd. (2024-25, also 2000-01 to 2003-04)</li>
+          <li>United India Insurance Co. Ltd. (1999-2000 to 2004-05)</li>
+          <li>New India Assurance Co. Ltd. (2002-03 to 2004-05)</li>
+          <li>Oriental Insurance Co. Ltd. (1988-89 to 1990-91)</li>
+        </ul>
+      </div>
+
+      <!-- Infrastructure -->
+      <div class="exp-card">
+        <h3>Infrastructure</h3>
+        <ul><li>Gujarat State Road Development Corporation (2019-20)</li></ul>
+      </div>
+
+      <!-- Manufacturing & Mining -->
+      <div class="exp-card">
+        <h3>Manufacturing & Mining</h3>
+        <ul>
+          <h4>Statutory Audit / Statutory Branch Audit</h4>
+          <li>Hindustan Zinc Ltd. (1994-95, 1995-96, 1996-97)</li>
+          <li>Udaipur Stone Mining Pvt. Ltd. (28 years)</li>
+          <li>Udaipur Granite & Marble Industries Pvt. Ltd.</li>
+        </ul>
+      </div>
+
+      <!-- Textile -->
+      <div class="exp-card">
+        <h3>Textile</h3>
+        <ul>
+          <h4>Statutory Audit</h4>
+          <li>Udaipur Cotton Mills, Udaipur (1991-92, 1992-93, 1993-94, 2002-03, 2003-04, 2004-05)</li>
+          <li>JBF Industries Ltd. (2020-21, 2021-22, 2022-23, 2023-24, 2024-25)</li>
+        </ul>
+      </div>
+
+      <!-- Hospitals -->
+      <div class="exp-card">
+        <h3>Hospitals</h3>
+        <ul>
+          <h4>Statutory Audit</h4>
+          <li>GBH American Hospital & Medical College (1998-99 to 2022-25)</li>
+          <li>Nirbhay Eye Hospital (2005-06 to 2024-25)</li>
+        </ul>
+      </div>
+
+      <!-- NGOs / Education -->
+      <div class="exp-card">
+        <h3>NGOs / Education</h3>
+        <ul>
+          <h4>Statutory Audit</h4>
+          <li>Pacific Academy of Higher Education & Research Society (2000-01 to 2013-14)</li>
+          <li>S.S. Education Trust (2008-09 to 2013-14)</li>
+          <li>Maa Asawara Nursing College (2008-09 to 2013-14)</li>
+          <li>Star Nursing College (2008-09 to 2013-14)</li>
+          <li>Forest Development Agency (2005-06 till date)</li>
+        </ul>
+      </div>
+
+      <!-- Co-operative Societies -->
+      <div class="exp-card">
+        <h3>Co-operative Societies</h3>
+        <ul>
+          <h4>Statutory Audit</h4>
+          <li>Udaipur Kraya Vikray Sahakari Samiti Ltd. (2008-09)</li>
+          <li>HZL Vedanta Balchetna Anganawadi (2008-09 to 2010-11)</li>
+          <li>Udaipur Sahakari Upbhokta Thok Bhandar Ltd. (2010-11)</li>
+          <li>Udaipur Yashad Paridrawak Sahakari Upbhokta Bhandar Ltd. (2010-11)</li>
+          <li>The Maharashtra Mantralaya and Allied Officers Co-op Bank Ltd. (2019-20)</li>
+          <li>Bank of Baroda Pune Dighi Camp / Pune RTCOO Branch (2019-20)</li>
+          <li>The Income Tax Employees Co-op Bank Ltd. (2021-22)</li>
+          <li>Bank of Baroda (Sangamner & Chakan Branches)</li>
+          <li>The Rachana Co-op Credit Society (2021-22, 2022-23, 2023-24)</li>
+          <li>Borivali Jan Kalyan Co-op Credit Society Ltd. (2024-25)</li>
+          <li>MSEB Employees Co-op Credit Society Ltd. Mumbai (2024-25)</li>
+        </ul>
+      </div>
+
+      <!-- Universities -->
+      <div class="exp-card">
+        <h3>Universities</h3>
+        <ul>
+          <h4>Statutory Audit</h4>
+          <li>Rajasthan Agriculture University, Bikaner (1996-97 to 1998-99)</li>
+          <li>Mohan Lal Sukhadia University, Udaipur (2016-17, 2017-18)</li>
+          <li>Pacific University, Udaipur (since inception till 2013-14)</li>
+          <li>Guru Gobind Tribal University, Banswara (2013-14 to 2019-20)</li>
+          <h4>External Audit of World Bank assisted NAHEP (2018-19, 2019-20)</h4>
+        </ul>
+      </div>
+
+      <!-- Professional Services -->
+      <div class="exp-card">
+        <h3>Other Professional Services</h3>
+        <ul>
+          <li>Internal Audit</li>
+          <li>Systems Design</li>
+          <li>Appraisal of Internal Control Procedures</li>
+          <li>Valuation of Assets</li>
+          <li>Liquidation and other Company matters</li>
+          <li>NCLT, ITAT, Arbitration</li>
+          <li>Financial & Tax consultancy for business organizations</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  
+  <!-- Footer -->
+    <!-- Back to Top -->
+  <button id="backToTop">↑</button>
+  <footer>
+    <p>© 2025 S. C. AJMERA & CO. | <a href="mailto:scajmeraca@gmail.com">scajmeraca@gmail.com
+<script>
+     // Hamburger toggle
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("active");
+    }
+
+    // Back to Top
+    const backToTop = document.getElementById("backToTop");
+    window.addEventListener("scroll", () => {
+      backToTop.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
+ 

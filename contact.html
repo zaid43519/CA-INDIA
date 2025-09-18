@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S. C. AJMERA & CO.— Contact</title>
+  <style>
+    /* === Global Styles === */
+    :root {
+      --primary: #1570a0;
+      --dark: #222;
+      --muted: #666;
+      --bg: #f9f9f9;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Lato, sans-serif; }
+    body { color: var(--dark); background: #fff;
+      background-image  : url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+ line-height: 1.6; }
+    a { text-decoration: none; color: var(--primary); }
+    img { max-width: 100%; display: block; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+
+     /* Header */
+    header { background: #fff; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 100; }
+    .header-inner { display: flex; justify-content: space-between; align-items: center; }
+    nav ul { list-style: none; display: flex; gap: 20px; }
+    nav a { color: var(--dark); font-weight: 600; }
+    nav a:hover { color: var(--primary); }
+    .brand { font-size: 1.2rem; font-weight: bold; color: var(--primary); display: flex; align-items: center; gap: 10px; }
+    .brand img { height: 40px; }
+
+    nav ul li { position: relative; }
+    nav ul li ul {
+      display: none; position: absolute; top: 100%; left: 0;
+      background: #fff; border: 1px solid #ddd; border-radius: 6px;
+      min-width: 180px; padding: 10px 0; z-index: 999;
+    }
+    nav ul li:hover ul { display: block; }
+    nav ul li ul li a { padding: 8px 15px; display: block; color: var(--dark); }
+    nav ul li ul li a:hover { background: #f4f6fb; color: var(--primary); }
+
+    .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
+    .hamburger span { background: #000; height: 3px; width: 25px; border-radius: 2px; }
+
+    @media (max-width: 768px) {
+      nav ul { display: none; flex-direction: column; background: #fff;
+        position: absolute; top: 70px; padding: 15px; left: 0; width: 100%;
+        border-top: 1px solid #eee; }
+      nav ul.active { display: flex; }
+      nav ul li { width: 100%; }
+      nav ul li ul { position: static; border: none; background: none; padding: 0; }
+      nav ul li ul li a { padding-left: 30px; }
+      .hamburger { display: flex; }
+    }
+
+    /* === Hero === */
+    .hero {
+      padding: 100px 20px;
+      text-align: center;
+      background: linear-gradient(-45deg, #0b5bd7, #092b7a, #1570a0, #00c6ff);
+      background-size: 400% 400%;
+      animation: gradientBG 12s ease infinite;
+      color: #fff;
+      max-height: 5vh;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .hero h1 {
+      font-size: 3.2rem;
+      margin-bottom: 15px;
+      animation: slideDown 1s ease-out forwards;
+    }
+    @keyframes slideDown {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .hero p { max-width: 700px; margin: 0 auto; font-size: 1.1rem; }
+
+    /* === Stats Section === */
+    .stats { padding: 40px 20px; text-align: center; background: #f4f6fb; }
+    .stat-list { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+    .stat { font-size: 1.8rem; font-weight: bold; color: var(--primary); }
+    .stat span { display: block; font-size: 0.9rem; color: var(--muted); }
+
+    /* === Vision & Mission === */
+    .vision-mission { padding: 50px 20px; background: #f9f9f9; text-align: center; }
+    .vision-mission h2 { margin-bottom: 30px; font-size: 2rem; color: var(--dark); }
+    .vm-boxes { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+    .vm-box {
+      max-width: 280px;
+      background: #fff;
+      border: 2px solid var(--primary);
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .vm-box:hover { transform: translateY(-5px); }
+    .vm-box h3 { margin-bottom: 10px; font-size: 1.2rem; color: var(--primary); }
+    .vm-box p { font-size: 0.95rem; color: var(--muted); }
+
+    /* === Insights Cards === */
+    .insights { padding: 50px 20px; }
+    .insights h2 { text-align: center; margin-bottom: 30px; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 20px; }
+    .card { border: 1px solid #ddd; border-radius: 10px; overflow: hidden; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+    .card img { height: 180px; object-fit: cover; }
+    .card-body { padding: 15px; }
+    .card-body h3 { font-size: 1.1rem; margin-bottom: 10px; }
+    .card-body time { display: block; margin-bottom: 10px; font-size: 0.85rem; color: var(--muted); }
+
+    /* === Newsletter === */
+    .subscribe { background: var(--bg); padding: 40px 20px; text-align: center; }
+    .subscribe h2 { margin-bottom: 20px; }
+    .subscribe form { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; }
+    .subscribe input { padding: 10px; border: 1px solid #ccc; border-radius: 6px; min-width: 250px; }
+    .subscribe button { padding: 10px 16px; border: 0; border-radius: 6px; background: var(--primary); color: #fff; cursor: pointer; }
+    .subscribe button:hover { background: #092b7a; }
+
+/* Contact Section */
+    /* .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      max-width: 1100px;
+      margin: 50px auto;
+      padding: 20px;
+    } */
+
+    .contact-container {
+  display: flex;
+  flex-direction: column; /* stack vertically */
+  gap: 40px;
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+
+    .contact-info {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .contact-info h2 {
+      margin-bottom: 15px;
+      font-size: 24px;
+      color: #111;
+    }
+
+    .contact-info p {
+      margin: 10px 0;
+    }
+
+    .contact-form {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .contact-form h2 {
+      margin-bottom: 15px;
+      font-size: 24px;
+      color: #111;
+    }
+
+    .contact-form input, 
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    .contact-form button {
+      background: #111;
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .contact-form button:hover {
+      background: #ffd700;
+      color: #111;
+    }
+
+    @media (max-width: 900px) {
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+
+    /* === Footer === */
+    footer { background: #111; color: #fff; padding: 30px 20px; text-align: center; margin-top: 40px; }
+    footer a { color: #fff; }
+
+    /* === Back to Top Button === */
+    #backToTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--primary);
+      color: #fff;
+      padding: 20px 25px;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      font-size: 18px;
+      z-index: 1000;
+    }
+    #backToTop:hover { background: #092b7a; }
+
+    /* === Fade-in Animations === */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+      
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container header-inner">
+      <div class="brand">
+        <a href="index.html">
+          <img src="images/Screenshot 2025-09-04 142312.png" alt="S. C. AJMERA & CO. Logo">
+        </a>
+      </div>
+      <nav>
+        <ul id="menu">
+          <li>
+            <a>About</a>
+            <ul>
+              <li><a href="/thefirm.html">Firm Legacy</a></li>
+              <li><a href="leadership.html">Leadership</a></li>
+              <li><a href="location.html">Location</a></li>
+            </ul>
+          </li>
+          <li><a href="experience.html">Experience</a></li>
+          <li><a href="insights.html">Insights</a></li>
+          
+          <li><a href="location.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero fade-in">
+    <h1 class="fade-in">Contact Us</h1>
+  <p>We’d love to hear from you. Reach out for any inquiries or collaborations.</p>  </section>
+
+
+
+
+
+  
+
+    <!-- Contact Section -->
+  <div class="contact-container fade-in">
+    <!-- Info -->
+    <div class="contact-info">
+      <h2 class="fade-in">Our Offices</h2>
+
+      <div style="margin-bottom:20px;" class="fade-in">
+        <h3>Thane (Head Office)</h3>
+        <p>A/302, Chintamani CHS,<br>
+        Besides TDCC HO, Shivaji Path,<br>
+        Thane West – 400601</p>
+      </div>
+
+      <div style="margin-bottom:20px;"class="fade-in">
+        <h3>Udaipur Office</h3>
+        <p>S.C. Ajmera & Company<br>
+        Chartered Accountants<br>
+        18, Technocrat Housing Society,<br>
+        Moti Magri Scheme,<br>
+        Udaipur – 313001</p>
+        <p><strong>Email:</strong> <a href="mailto:sca_ca@yahoo.com">sca_ca@yahoo.com</a>, 
+        <a href="mailto:ajmerasc@gmail.com">ajmerasc@gmail.com</a></p>
+      </div>
+
+      <div style="margin-bottom:20px;"class="fade-in">
+        <h3>Mumbai Office</h3>
+        <p>102, Vatsalya Building, Ekta CHS,<br>
+        RTO Road, Andheri (W),<br>
+        Mumbai – 400053</p>
+      </div>
+
+      <div style="margin-bottom:20px;"class="fade-in">
+        <h3>Indore Office</h3>
+        <p>372-AE, Scheme -74-C,<br>
+        Vijay Nagar,<br>
+        Indore – 452010,<br>
+        Madhya Pradesh</p>
+      </div>
+
+      <div style="margin-bottom:20px;"class="fade-in">
+        <h3>Sambalpur Office</h3>
+        <p>C/O Binod Kumar Choudhary,<br>
+        Khetrajpur,<br>
+        Sambalpur – 768003</p>
+      </div>
+    </div>
+
+    <!-- Form -->
+    <div class="contact-form fade-in" >
+      <h2 class="fade-in">Send a Message</h2>
+      <form action="#" method="post">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="text" name="subject" placeholder="Subject" required>
+        <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+        <button type="submit" class="fade-ins">Send Message</button>
+      </form>
+    </div>
+  </div>
+
+
+
+
+
+
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 S. C. AJMERA & CO. | <a href="mailto:scajmeraca@gmail.com">scajmeraca@gmail.com</a></p>
+  </footer>
+    <!-- Back to Top Button -->
+  <button id="backToTop"><b>↑</button>
+
+  <!-- Counter Script -->
+  <script>
+    // Counter animation
+    const counters = document.querySelectorAll('.counter');
+    const speed = 200;
+
+    counters.forEach(counter => {
+      const updateCount = () => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        const increment = Math.ceil(target / speed);
+
+        if (count < target) {
+          counter.innerText = count + increment;
+          setTimeout(updateCount, 20);
+        } else {
+          counter.innerText = target + (target >= 50 ? "+" : "");
+        }
+      };
+      updateCount();
+    });
+
+    // Hamburger toggle
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("active");
+    }
+
+      // Back to Top Button
+    const backToTop = document.getElementById("backToTop");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        backToTop.style.display = "block";
+      } else {
+        backToTop.style.display = "none";
+      }
+    });
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // Fade-in on scroll
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = { threshold: 0.2 };
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, appearOptions);
+    faders.forEach(fader => appearOnScroll.observe(fader));
+  </script>
+</body>
+</html>

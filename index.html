@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S. C. AJMERA & CO.— Home</title>
+  <style>
+    :root {
+      --primary: #1570a0;
+      --dark: #222;
+      --muted: #666;
+      --bg: #f9f9f9;
+    }
+    
+
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; font-family: 'Lato', sans-serif;}
+    body { color: var(--dark); background: #fff; line-height: 1.6; scroll-behavior: smooth; }
+    a { text-decoration: none; color: var(--primary); }
+    img { max-width: 100%; display: block; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+
+    /* === Header === */
+    header { background: #fff; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 100; }
+    .header-inner { display: flex; justify-content: space-between; align-items: center; }
+    nav ul { list-style: none; display: flex; gap: 20px; }
+    nav a { color: var(--dark); font-weight: 600; }
+    nav a:hover { color: var(--primary); }
+    .brand img { height: 50px; }
+
+    /* Dropdown */
+    nav ul li { position: relative; }
+    nav ul li ul {
+      display: none;
+      position: absolute;
+      top: 100%; left: 0;
+      background: #fff; border: 1px solid #ddd;
+      border-radius: 6px; min-width: 180px;
+      padding: 10px 0; z-index: 999;
+    }
+    nav ul li:hover ul { display: block; }
+    nav ul li ul li a {
+      padding: 8px 15px; display: block; color: var(--dark);
+    }
+    nav ul li ul li a:hover {
+      background: #f4f6fb; color: var(--primary);
+    }
+
+    /* Hamburger menu */
+    .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
+    .hamburger span { background: #000; height: 3px; width: 25px; border-radius: 2px; }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none; flex-direction: column;
+        background: #fff; position: absolute; top: 70px; left: 0;
+        width: 100%; padding: 15px; border-top: 1px solid #eee;
+      }
+      nav ul.active { display: flex; }
+      nav ul li { width: 100%; }
+      nav ul li ul { position: static; border: none; background: none; padding: 0; }
+      nav ul li ul li a { padding-left: 30px; }
+      .hamburger { display: flex; }
+    }
+
+    /* === Hero with Animated Gradient === */
+    .hero {
+      padding: 100px 20px;
+      text-align: center;
+      background: linear-gradient(-45deg, #0b5bd7, #092b7a, #1570a0, #00c6ff);
+      background-size: 400% 400%;
+      animation: gradientBG 12s ease infinite;
+      color: #fff;
+      min-height: 80vh;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .hero h1 {
+      font-size: 3.2rem;
+      margin-bottom: 15px;
+      animation: slideDown 1s ease-out forwards;
+    }
+    @keyframes slideDown {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    /* .hero p {
+      max-width: 700px; 
+      margin: 0 auto;
+      font-size: 1.3rem;
+      white-space: nowrap; 
+      overflow: hidden;
+      border-right: 3px solid #fff;
+      width: 0;
+      animation: typing 4s steps(50, end) forwards, blink 0.75s step-end infinite;
+    }
+    @keyframes typing { from { width: 0; } to { width: 100%; } }
+    @keyframes blink { 50% { border-color: transparent; } } */
+.hero p {
+  max-width: 90%;
+  margin: 20px auto;
+  font-size: 1.3rem;
+  white-space: pre-wrap; /* natural wrapping */
+  overflow: hidden;
+  display: inline; /* inline makes cursor match text height */
+}
+
+.hero p::after {
+  content: "|"; /* cursor */
+  display: inline-block;
+  margin-left: 2px;
+  animation: blink 0.75s step-end infinite;
+  color: #fff;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+
+
+
+
+   /* === Glassmorphism Stats === */
+.stats {
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+  background: url('https://www.transparenttextures.com/patterns/cubes.png');
+}
+
+.stat-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.stat {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 30px 40px;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.stat:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+}
+
+.stat .count {
+  display: block;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.stat span {
+  display: block;
+  font-size: 1rem;
+  margin-top: 10px;
+  color: #092b7a;
+}
+
+@media (max-width: 768px) {
+  .stat-list {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+
+    /* === Flip Cards Vision/Mission === */
+    .vision-mission { padding: 60px 20px; text-align: center; background: #f9f9f9; }
+    .vm-boxes { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+    .vm-box { perspective: 1000px; width: 300px; height: 250px; }
+    .vm-box-inner {
+      position: relative; width: 100%; height: 100%;
+      transition: transform 0.8s; transform-style: preserve-3d;
+    }
+    .vm-box:hover .vm-box-inner { transform: rotateY(180deg); }
+    .vm-box-front, .vm-box-back {
+      position: absolute; width: 100%; height: 100%;
+      backface-visibility: hidden; border-radius: 12px;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15); padding: 20px;
+    }
+    .vm-box-front { background: #fff; }
+    .vm-box-back { background: var(--primary); color: #fff; transform: rotateY(180deg); }
+
+    /* === Insights === */
+    .insights { padding: 60px 20px; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr));gap: 30px; } 
+    .card {
+      border-radius: 12px; overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .card:hover { transform: translateY(-8px); box-shadow: 0 12px 25px rgba(0,0,0,0.2); }
+    .card img { height: 180px; width: 100%; object-fit: cover; }
+    .card-body { padding: 15px; }
+    .card-body h3 { font-size: 1.1rem; color: var(--primary); margin-bottom: 10px; }
+    .card-body time { font-size: 0.85rem; color: var(--muted); }
+
+    /* === Newsletter CTA === */
+    .subscribe {
+      background: linear-gradient(135deg, #1570a0, #092b7a
+      );
+      color: #fff; border-radius: 15px;
+      margin: 50px auto; 
+      max-width: 500px;
+      padding: 50px 20px; 
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+    .subscribe form { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; }
+    .subscribe input {
+      padding: 12px; border-radius: 6px; min-width: 250px;
+      border: none; outline: none;
+    }
+    .subscribe button {
+      padding: 12px 18px; border: none; border-radius: 6px;
+      background: #fff; color: var(--primary); font-weight: bold;
+      cursor: pointer; transition: transform 0.3s ease;
+    }
+    .subscribe button:hover { transform: scale(1.1); }
+
+    /* === Footer === */
+    footer { background: #111; color: #fff; padding: 30px 20px; text-align: center; margin-top: 40px; }
+    footer a { color: #fff; }
+
+    /* === Back to Top Floating === */
+    #backToTop {
+      position: fixed; bottom: 30px; right: 30px;
+      background: var(--primary); color: #fff;
+      padding: 15px 20px; border: none; border-radius: 50%;
+      cursor: pointer; display: none; font-size: 20px;
+      z-index: 1000; animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(21,112,160, 0.7); }
+      70% { transform: scale(1.1); box-shadow: 0 0 0 15px rgba(21,112,160, 0); }
+      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(21,112,160, 0); }
+    }
+
+    html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 2rem;  /* smaller text on mobiles */
+    line-height: 1.3;
+  }
+
+}
+.cards {
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .logo-left img, .brand img {
+    height: 35px;
+    max-width: 150px;
+  }
+
+  .brand img{
+    margin-left: 10px;
+  }
+
+  nav {
+    flex-basis: 100%;
+    order: 3;
+  }
+
+  .hamburger {
+    order: 2;
+    margin-left: -300px;
+  }
+}
+
+/* Flexbox alignment */
+
+
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    
+    <div class="container header-inner">
+      <a href="index.html">
+      <img class="logo" style="width: 80px; height: 50px; margin-right: 50px;" src="images/New_CA_India_Logo.png" alt="CA India">
+    </a>
+      <div class="brand">
+        <a href="index.html">
+        
+          <img style="margin-right: 400px;" src="images/Screenshot 2025-09-04 142312.png" alt="S. C. AJMERA & CO. Logo">
+        </a>
+      </div>
+      <nav>
+        <ul id="menu">
+          <li>
+            <a>About</a>
+            <ul>
+              <li><a href="thefirm.html">Firm Legacy</a></li>
+              <li><a href="leadership.html">Leadership</a></li>
+              <li><a href="location.html">Location</a></li>
+            </ul>
+          </li>
+          <li><a href="experience.html">Experience</a></li>
+          <li><a href="insights.html">Insights</a></li>
+          <li><a href="location.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <!-- <section class="hero">
+    <h1>Where Knowledge Meets Experience</h1>
+    <p>S. C. AJMERA & CO. provides tax, audit, advisory and corporate services.</p>
+  </section> -->
+
+<div class="hero">
+  <h1>Where Knowledge Meets Experience</h1>
+  <p id="typing"></p>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const text = "S. C. AJMERA & CO. provides tax, audit, advisory and corporate services.";
+    let i = 0;
+
+    function typeWriter() {
+      if (i < text.length) {
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 50); // typing speed
+      }
+    }
+
+    typeWriter(); // start immediately
+  });
+</script>
+
+
+
+
+  <!-- Stats -->
+  <section class="stats">
+    <div class="stat-list">
+      <div class="stat" data-target="50" style="color: #0b5bd7;">
+        <span class="count">0</span>
+        <span>Partners</span>
+      </div>
+      <div class="stat" data-target="50" style="color: #0b5bd7;">
+        <span class="count">0</span>
+        <span>Personnel</span>
+      </div>
+      <div class="stat" data-target="6" style="color: #0b5bd7;">
+        <span class="count">0</span>
+        <span>Offices</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vision & Mission -->
+  <section class="vision-mission">
+    <h2 style="font-size: 30px;">Our Vision & Mission</h2>
+    <div class="vm-boxes" style="margin-top: 40px;">
+      <div class="vm-box">
+        <div class="vm-box-inner">
+          <div class="vm-box-front"><h3>Vision</h3></div>
+          <div class="vm-box-back"><p>To constantly exceed our clients' expectations by adding value at every business level.</p></div>
+        </div>
+      </div>
+      <div class="vm-box">
+        <div class="vm-box-inner">
+          <div class="vm-box-front"><h3>Mission</h3></div>
+          <div class="vm-box-back"><p>To provide knowledge-based solutions with personalized services for sustainable growth.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ 
+  <!-- Newsletter -->
+  <section class="subscribe">
+    <h2>Stay Updated. Subscribe To Our Newsletter</h2>
+    <form>
+      <input type="email" placeholder="Enter your email" required style="margin-top: 30px;">
+      <button type="submit" style="margin-top: 30px;">Subscribe</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 S. C. AJMERA & CO. | <a href="mailto:scajmeraca@gmail.com">scajmeraca@gmail.com</a></p>
+  </footer>
+
+  <!-- Back to Top -->
+  <button id="backToTop">↑</button>
+
+  <!-- Scripts -->
+  <script>
+    // Counter animation
+    const counters = document.querySelectorAll('.stat .count');
+    counters.forEach(counter => {
+      const updateCount = () => {
+        const target = +counter.parentElement.getAttribute('data-target');
+        const count = +counter.innerText.replace('+','');
+        const increment = Math.ceil(target / 100);
+        if (count < target) {
+          counter.innerText = count + increment;
+          setTimeout(updateCount, 30);
+        } else {
+          counter.innerText = target + (target >= 50 ? "+" : "");
+        }
+      };
+      updateCount();
+    });
+
+    // Hamburger toggle
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("active");
+    }
+
+    // Back to Top
+    const backToTop = document.getElementById("backToTop");
+    window.addEventListener("scroll", () => {
+      backToTop.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
+</body>
+</html>
